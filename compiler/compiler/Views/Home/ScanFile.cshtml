@@ -1,0 +1,61 @@
+﻿@model compiler.Models.ViewModel
+@{
+    ViewData["Title"] = "ScanFile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Scan File</h1>
+
+    
+
+<h3>Correct Tokens</h3>
+<table class="table">
+    <tr>
+        <th>Line Number</th>
+        <th>Token Text</th>
+        <th>Token Type</th>
+    </tr>
+    
+     @foreach (var item in Model.correctTokens)
+    {
+         <tr>
+            <td>@item.LineNumebr</td>
+            <td>@item.Token</td>
+            <td>@item.TokenType</td>
+           
+         </tr>
+    }
+
+    
+</table>
+
+<h3>Wrong Tokens</h3>
+
+<table class="table">
+    <tr>
+        <th>Line Number</th>
+        <th>Token Text</th>
+    </tr>
+
+    @if (Model.wrongToken.Count() == 0)
+    {
+        <tr>
+            <td style="color:red">
+                No Errors
+            </td>
+            <td></td>
+        </tr>
+    }
+    else
+    {
+       foreach (var token in Model.wrongToken)
+        {
+           <tr>
+             <td>@token.LineNumber</td>
+             <td>@token.Token</td>
+            </tr>
+        }
+    }
+    
+    
+</table>

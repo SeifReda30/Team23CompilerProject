@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+
+<p>Upload Source File</p>
+
+ @using(Html.BeginForm("ScanFile", "Home", FormMethod.Post,new { enctype = "multipart/form-data" }))
+{
+
+    
+    <input type="file" name="FileSource"  placeholder="file source"/>
+    <input type="submit" value="Upload File" />
+}
+
+</div>
