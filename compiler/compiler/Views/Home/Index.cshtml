@@ -72,7 +72,24 @@ wrapText("text", "<*", "*>");
 
 
 }
+function UnComment() {
+        function removeText(elementID, openTag, closeTag) {
+    var textArea = $('#' + elementID);
+    var len = textArea.val().length;
+    var start = textArea[0].selectionStart;
+    var end = textArea[0].selectionEnd;
+   var selectedTextopen = textArea.val().substring(start, start+2);
+   var selectedTextend = textArea.val().substring(end, end-2);
+    var replacement = textArea.val().substring(start+2, end-2);
+            if (selectedTextopen == "<*" && selectedTextend == "*>") {
+             textArea.val(textArea.val().substring(0, start) + replacement + textArea.val().substring(end, len));
 
+            }
+
+        }
+ removeText("text", "<*", "*>");
+
+}
 
 
   </script>
