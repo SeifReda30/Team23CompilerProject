@@ -10063,11 +10063,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\FCAIH Material\\Subjects Third Year\\Second Term\\Compiler\\Project\\Scanner\\compiler\\compiler\\compiler.csproj",
+      "projectUniqueName": "D:\\Github\\Team23CompilerProject\\compiler\\compiler\\compiler.csproj",
       "projectName": "compiler",
-      "projectPath": "D:\\FCAIH Material\\Subjects Third Year\\Second Term\\Compiler\\Project\\Scanner\\compiler\\compiler\\compiler.csproj",
+      "projectPath": "D:\\Github\\Team23CompilerProject\\compiler\\compiler\\compiler.csproj",
       "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-      "outputPath": "D:\\FCAIH Material\\Subjects Third Year\\Second Term\\Compiler\\Project\\Scanner\\compiler\\compiler\\obj\\",
+      "outputPath": "D:\\Github\\Team23CompilerProject\\compiler\\compiler\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",

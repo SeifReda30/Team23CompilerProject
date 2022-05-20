@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UrQ1tnNCkKVPk8lIRTtaPTUICdbNElFrHBDBHj7V3fuV8ZjKy6pGZjEILVVsmcaxtc7/4LNb9wkGqUzQjkaANQ==",
+  "dgSpecHash": "OCN0NGa9as3IxHKhhny+j4s6RyqsmgwOFBHLIILx+TMAKhjS0Ns+wp+UxIANfFAkbvojF/K75SaSI+rLoPS9hQ==",
   "success": true,
-  "projectFilePath": "D:\\FCAIH Material\\Subjects Third Year\\Second Term\\Compiler\\Project\\Scanner\\compiler\\compiler\\compiler.csproj",
+  "projectFilePath": "D:\\Github\\Team23CompilerProject\\compiler\\compiler\\compiler.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DELL\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
