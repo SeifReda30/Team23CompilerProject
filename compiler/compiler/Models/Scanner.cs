@@ -35,7 +35,7 @@ namespace compiler.Models
 
         static string[] Signs = { "+", "-", "*", "/", "~", ".", "\"", "'", "{", "}", "[", "]", "(", ")" };
 
-        Dictionary<string, string> Keywords = new Dictionary<string, string>()
+        public Dictionary<string, string> Keywords = new Dictionary<string, string>()
         {
             {"Program","Start statement"},
             {"End" ,"End Statement"},

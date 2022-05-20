@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "T3xAUlawgmPhioft63Mwp5CEgBesitIbRts2GboHTOk=",
+  "Hash": "fTPjc3YL8epQyOsrAMHpu6xb1L2zOd1RxNud+E+LtDI=",
   "Source": "compiler",
   "BasePath": "_content/compiler",
   "Mode": "Default",
@@ -1120,6 +1120,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
+    },
+    {
+      "Identity": "D:\\Github\\Team23CompilerProject\\compiler\\compiler\\wwwroot\\js\\tribute.css",
+      "SourceId": "compiler",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Github\\Team23CompilerProject\\compiler\\compiler\\wwwroot\\",
+      "BasePath": "_content/compiler",
+      "RelativePath": "js/tribute.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\tribute.css"
+    },
+    {
+      "Identity": "D:\\Github\\Team23CompilerProject\\compiler\\compiler\\wwwroot\\js\\tribute.js",
+      "SourceId": "compiler",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Github\\Team23CompilerProject\\compiler\\compiler\\wwwroot\\",
+      "BasePath": "_content/compiler",
+      "RelativePath": "js/tribute.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\tribute.js"
     },
     {
       "Identity": "D:\\Github\\Team23CompilerProject\\compiler\\compiler\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",

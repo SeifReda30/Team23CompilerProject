@@ -1,6 +1,12 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<html>
+    <head>
+
+    </head>
+
+    <body>
 
 <div class="text-center">
     <h1 class="display-4"><b>Welcome</b></h1>
@@ -28,7 +34,7 @@
      <input type="submit" value="UnComment" onclick="UnComment()" style="background-color:grey;color:white;width:110px;" />
      </span>
      <br /> <br />
-  <textarea id="text" class="form-control" spellcheck="false"></textarea> <br />
+  <textarea id="text" class="form-control" spellcheck="false" autocomplete="on"></textarea> <br />
       <input type="submit" value="Scan" style="background-color:green;color:white;width:70px;" />
 
 </div>
@@ -90,6 +96,9 @@ function UnComment() {
  removeText("text", "<*", "*>");
 
 }
+    var suggests = ["Program", "End", "Ilap", "Silap", "Ilapf", "Silapf", "Clop", "Series", "Logical", "If", "Else", "Check", "situationOf", "Continuewhen", "Rotatewhen", "terminatethis", "None", "Replywith", "Seop", "Category", "Derive", "Using"];
 
 
   </script>
+  </body>
+   </html>
