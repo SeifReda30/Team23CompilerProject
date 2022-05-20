@@ -8,49 +8,53 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = compiler
 build_property.RootNamespace = compiler
-build_property.ProjectDir = D:\Github\Team23CompilerProject\compiler\compiler\
+build_property.ProjectDir = E:\ضحي\compilers\project\Team23CompilerProject\Team23CompilerProject\compiler\compiler\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\Github\Team23CompilerProject\compiler\compiler
+build_property.MSBuildProjectDirectory = E:\ضحي\compilers\project\Team23CompilerProject\Team23CompilerProject\compiler\compiler
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/Github/Team23CompilerProject/compiler/compiler/Areas/Identity/Pages/_ViewStart.cshtml]
+[E:/ضحي/compilers/project/Team23CompilerProject/Team23CompilerProject/compiler/compiler/Areas/Identity/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Github/Team23CompilerProject/compiler/compiler/Views/Home/Index.cshtml]
+[E:/ضحي/compilers/project/Team23CompilerProject/Team23CompilerProject/compiler/compiler/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Github/Team23CompilerProject/compiler/compiler/Views/Home/Privacy.cshtml]
+[E:/ضحي/compilers/project/Team23CompilerProject/Team23CompilerProject/compiler/compiler/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Github/Team23CompilerProject/compiler/compiler/Views/Home/ScanFile.cshtml]
+[E:/ضحي/compilers/project/Team23CompilerProject/Team23CompilerProject/compiler/compiler/Views/Home/ScanEditor.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTY2FuRWRpdG9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/ضحي/compilers/project/Team23CompilerProject/Team23CompilerProject/compiler/compiler/Views/Home/ScanFile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTY2FuRmlsZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Github/Team23CompilerProject/compiler/compiler/Views/Shared/Error.cshtml]
+[E:/ضحي/compilers/project/Team23CompilerProject/Team23CompilerProject/compiler/compiler/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Github/Team23CompilerProject/compiler/compiler/Views/Shared/_LoginPartial.cshtml]
+[E:/ضحي/compilers/project/Team23CompilerProject/Team23CompilerProject/compiler/compiler/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Github/Team23CompilerProject/compiler/compiler/Views/Shared/_ValidationScriptsPartial.cshtml]
+[E:/ضحي/compilers/project/Team23CompilerProject/Team23CompilerProject/compiler/compiler/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Github/Team23CompilerProject/compiler/compiler/Views/_ViewImports.cshtml]
+[E:/ضحي/compilers/project/Team23CompilerProject/Team23CompilerProject/compiler/compiler/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Github/Team23CompilerProject/compiler/compiler/Views/_ViewStart.cshtml]
+[E:/ضحي/compilers/project/Team23CompilerProject/Team23CompilerProject/compiler/compiler/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Github/Team23CompilerProject/compiler/compiler/Views/Shared/_Layout.cshtml]
+[E:/ضحي/compilers/project/Team23CompilerProject/Team23CompilerProject/compiler/compiler/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-950rz9k4mi

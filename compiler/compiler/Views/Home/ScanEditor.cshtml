@@ -1,0 +1,91 @@
+﻿@model compiler.Models.EditorJoinViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4"><b>Welcome</b></h1>
+    <br /> <br /> 
+
+<p><b>Upload Source File Here</b></p>
+
+ @using(Html.BeginForm("ScanFile", "Home", FormMethod.Post,new { enctype = "multipart/form-data" }))
+{
+
+    
+    <input type="file" name="FileSource"  placeholder="file source"  />
+    <input type="submit" value="Scan" style="background-color:green;color:white;width:70px;" />
+}
+
+</div>
+
+<br>
+ @using(Html.BeginForm("ScanEditor", "Home", FormMethod.Post))
+{
+
+    <div id="div1" class="form-group green-border-focus">
+                <label for="exampleFormControlTextarea5"><b>Or Write your Code Here</b></label>
+    <br/><br/>
+       <span>
+
+    <input type="submit" value="Comment" style="background-color:grey;color:white;width:100px;" />
+         <input type="submit" value="UnComment" style="background-color:grey;color:white;width:110px;" />
+         </span>
+    
+         <br /> <br />
+  
+
+   @{
+       string code= "";
+   }
+
+        
+
+       <textarea name="editorCode" id="text" class="form-control" spellcheck="false" >
+            
+           @*  
+            @foreach(var item in Model.codeEditorWords)
+            {
+                 if(//item in wrong token){
+                     <u style="color:red">@item</u>
+                 }
+                 @item
+              
+            }
+            *@
+            </textarea> 
+           
+                 <br />
+              <input type="submit" value="Scan" style="background-color:green;color:white;width:70px;" />
+              <u style="color:red">hhh</u>
+              <p style="text-decoration: underline;">This text will be underlined.</p>
+          
+       
+         
+    </div>
+}
+
+<style>
+
+ .form-control:focus {
+    border: 1px solid green;
+    box-shadow: 0 0 0 0.2rem rgba(186, 104, 200, .25);
+}
+
+.green-border-focus .form-control:focus {
+    border: 1px solid #8bc34a;
+    box-shadow: 0 0 0 0.2rem rgba(139, 195, 74, .25);
+}
+#text {
+  width: 550px;
+  height: 250px;
+ 
+}
+#div1{
+    margin:50px 280px;
+}
+</style>
+<script>
+
+
+</script>
