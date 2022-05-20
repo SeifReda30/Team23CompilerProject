@@ -24,8 +24,8 @@
 <br/><br/>
   <span>
 
- <input type="submit" value="Comment" style="background-color:grey;color:white;width:100px;" />
-     <input type="submit" value="UnComment" style="background-color:grey;color:white;width:110px;" />
+ <input type="submit" value="Comment" onclick="Comment()" style="background-color:grey;color:white;width:100px;" />
+     <input type="submit" value="UnComment" onclick="UnComment()" style="background-color:grey;color:white;width:110px;" />
      </span>
      <br /> <br />
   <textarea id="text" class="form-control" spellcheck="false"></textarea> <br />
@@ -54,3 +54,25 @@
     margin:50px 280px;
 }
 </style>
+
+  <script>
+
+function Comment() {
+    function wrapText(elementID, openTag, closeTag) {
+    var textArea = $('#' + elementID);
+    var len = textArea.val().length;
+    var start = textArea[0].selectionStart;
+    var end = textArea[0].selectionEnd;
+    var selectedText = textArea.val().substring(start, end);
+    var replacement = openTag + selectedText + closeTag;
+    textArea.val(textArea.val().substring(0, start) + replacement + textArea.val().substring(end, len));
+}
+
+wrapText("text", "<*", "*>");
+
+
+}
+
+
+
+  </script>
