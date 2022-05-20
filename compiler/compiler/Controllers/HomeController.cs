@@ -1,6 +1,7 @@
 ﻿using compiler.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using System.Linq;
 
 namespace compiler.Controllers
 {
@@ -30,11 +31,18 @@ namespace compiler.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
+        Scanner scanner = new Scanner();
+
+        ViewModel vm = new ViewModel()
+        {
+            correctTokens = new List<CorrectToken>(),
+            wrongToken = new List<WrongToken>(),
+        };
 
         [HttpPost]
         public async Task<IActionResult> ScanFileAsync(IFormFile FileSource)
         {
-            Scanner scanner = new Scanner();
+            
             //Array array;
             // Uses Path.GetTempFileName to return a full path for a file, including the file name.
             string path = Path.GetTempFileName();
@@ -49,15 +57,55 @@ namespace compiler.Controllers
 
             //ViewBag.CorrectTokens = array;
 
-            ViewModel vm = new ViewModel()
-            {
-                correctTokens = new List<CorrectToken>(),
-                 wrongToken = new List<WrongToken>(),
-            };
+            
+
             vm.correctTokens = scanner.correctTokens;
             vm.wrongToken = scanner.wrongTokens;
 
             return View(vm);
+        }
+
+
+       public IActionResult ScanEditor(string editorCode)
+       {
+            scanner = scanner.ScanningEditor( editorCode, scanner);
+
+            vm.correctTokens = scanner.correctTokens;
+            vm.wrongToken = scanner.wrongTokens;
+
+            string[] CodeEditorLines = editorCode.Split('\n');
+
+            string[] words = new string[100]; 
+
+            string CodeEditorwords = "";
+
+            foreach (var item in CodeEditorLines)
+            {
+                words = item.Split(' ');
+
+                foreach(var word in words)
+                {
+                   // word = word.Split('\r');
+                    CodeEditorwords += word;
+                    CodeEditorwords += " ";
+
+                }
+                CodeEditorwords += "\n";
+            }
+             
+
+            //string[] CodeEditorLines = editorCode.Split('\n');
+
+
+            EditorJoinViewModel e = new EditorJoinViewModel()
+            {
+                codeEditorWords = CodeEditorwords,
+                viewModel = vm,
+                codeEditorLines = CodeEditorLines
+
+            };
+
+            return View(e);
         }
     }
 }

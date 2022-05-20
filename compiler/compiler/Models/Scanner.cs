@@ -152,7 +152,7 @@ namespace compiler.Models
             {
                 NextState = TransationTable[currentstate, 7];
             }
-            else if (input == ' ' || input == ';' || input == '%' || input == '\t')
+            else if (input == ' ' || input == ';' || input == '%' || input == '\t' || input == '\r')
             {
                 NextState = TransationTable[currentstate, 8];
             }
@@ -211,7 +211,7 @@ namespace compiler.Models
                     {
                         if (NextState==0)
                         {
-                            if (input==' ' || input == ';' || input== '%' || input == '\t')
+                            if (input==' ' || input == ';' || input== '%' || input == '\t' || input == '\r')
                             {
                                 WrongToken r = new WrongToken()
                                 {
@@ -310,14 +310,32 @@ namespace compiler.Models
 
 
 
-        public Scanner ScanningFile(String fileSource , Scanner scanner)
+        public Scanner ScanningFile(string fileSource , Scanner scanner)
         {
             ReadFileLines(fileSource, scanner);
             
             return scanner;
         }
-      
 
+        private void ReadEditorLines(string editorCode, Scanner scanner)
+        {
+            // Read a text file line by line.  
+            string[] lines = editorCode.Split('\n');
+
+            foreach (string line in lines)
+            {
+                ReadingWords(line, scanner);
+                lineNumber++;
+            }
+        }
+
+
+        public Scanner ScanningEditor(string editorCode, Scanner scanner)
+        {
+            ReadEditorLines(editorCode, scanner);
+
+            return scanner;
+        }
     }
 
 }

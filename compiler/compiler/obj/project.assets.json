@@ -10058,19 +10058,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\DELL\\.nuget\\packages\\": {}
+    "C:\\Users\\abdo ali\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Github\\Team23CompilerProject\\compiler\\compiler\\compiler.csproj",
+      "projectUniqueName": "E:\\ضحي\\compilers\\project\\Team23CompilerProject\\Team23CompilerProject\\compiler\\compiler\\compiler.csproj",
       "projectName": "compiler",
-      "projectPath": "D:\\Github\\Team23CompilerProject\\compiler\\compiler\\compiler.csproj",
-      "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-      "outputPath": "D:\\Github\\Team23CompilerProject\\compiler\\compiler\\obj\\",
+      "projectPath": "E:\\ضحي\\compilers\\project\\Team23CompilerProject\\Team23CompilerProject\\compiler\\compiler\\compiler.csproj",
+      "packagesPath": "C:\\Users\\abdo ali\\.nuget\\packages\\",
+      "outputPath": "E:\\ضحي\\compilers\\project\\Team23CompilerProject\\Team23CompilerProject\\compiler\\compiler\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\abdo ali\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
