@@ -3,24 +3,34 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
+    <h1 class="display-4"><b>Welcome</b></h1>
+    <br /> <br /> 
 
-<p>Upload Source File Here</p>
+<p><b>Upload Source File Here</b></p>
 
  @using(Html.BeginForm("ScanFile", "Home", FormMethod.Post,new { enctype = "multipart/form-data" }))
 {
 
     
-    <input type="file" name="FileSource"  placeholder="file source"/>
-    <input type="submit" value="Upload File" />
+    <input type="file" name="FileSource"  placeholder="file source"  />
+    <input type="submit" value="Scan" style="background-color:green;color:white;width:70px;" />
 }
 
 </div>
 
 <br>
 <div id="div1" class="form-group green-border-focus">
-  <label for="exampleFormControlTextarea5">Or Write your Code Here</label>
-  <textarea id="text" class="form-control"></textarea>
+            <label for="exampleFormControlTextarea5"><b>Or Write your Code Here</b></label>
+<br/><br/>
+  <span>
+
+ <input type="submit" value="Comment" style="background-color:grey;color:white;width:100px;" />
+     <input type="submit" value="UnComment" style="background-color:grey;color:white;width:110px;" />
+     </span>
+     <br /> <br />
+  <textarea id="text" class="form-control" spellcheck="false"></textarea> <br />
+      <input type="submit" value="Scan" style="background-color:green;color:white;width:70px;" />
+
 </div>
 
 
