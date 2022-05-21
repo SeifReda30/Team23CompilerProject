@@ -1,5 +1,11 @@
-﻿using System.Linq;
+﻿using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 using System.Text.RegularExpressions;
+using Microsoft.Extensions.Logging;
+using Newtonsoft.Json.Serialization;
+using Microsoft.AspNetCore;
+using Newtonsoft.Json;
+
 
 namespace compiler.Models
 {
@@ -9,7 +15,7 @@ namespace compiler.Models
 
         public Scanner()
         {
-            TransationTable[1,1] = 2;
+            TransationTable[1, 1] = 2;
             TransationTable[1, 2] = 4;
             TransationTable[1, 3] = 5;
             TransationTable[1, 4] = 6;
@@ -70,11 +76,11 @@ namespace compiler.Models
 
         static string[] Digits = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "0" };
 
-        static string[] RelationalOperators = {"==", "<", ">", "<=", ">=", "!="};
+        static string[] RelationalOperators = { "==", "<", ">", "<=", ">=", "!=" };
 
-        static string[] LogicOperators = { "&&", "||", "~"};
+        static string[] LogicOperators = { "&&", "||", "~" };
 
-        static string[] ArthemiticOperators = { "+", "-", "*", "/"};
+        static string[] ArthemiticOperators = { "+", "-", "*", "/" };
 
         static string AssignmentOperator = "=";
 
@@ -82,9 +88,9 @@ namespace compiler.Models
 
         static string[] QuotaionMark = { "\"", "'" };
 
-        static string[] Braces = {"{", "}", "[", "]" , "(" , ")"};
-        
-        static int AcceptState=11;
+        static string[] Braces = { "{", "}", "[", "]", "(", ")" };
+
+        static int AcceptState = 11;
 
         bool multicomment = false;
 
@@ -97,7 +103,7 @@ namespace compiler.Models
         int lineNumber = 1;
 
 
-        private void ReadFileLines(string fileSource,Scanner scanner)
+        private void ReadFileLines(string fileSource, Scanner scanner)
         {
             // Read a text file line by line.  
             string[] lines = File.ReadAllLines(fileSource);
@@ -163,7 +169,7 @@ namespace compiler.Models
             return NextState;
 
         }
-        private void ReadingWords(string line,Scanner scanner)
+        private void ReadingWords(string line, Scanner scanner)
         {
             line += '%';
             int CurrentState = 1;
@@ -171,7 +177,7 @@ namespace compiler.Models
             string token = "";
             int i;
             int length = line.Length;
-            for (i=0;i<length;i++)
+            for (i = 0; i < length; i++)
             {
                 char input = line[i];
                 if (multicomment)
@@ -201,7 +207,7 @@ namespace compiler.Models
                 {
                     NextState = GetNextState(CurrentState, input);
 
-                    if (NextState==AcceptState)
+                    if (NextState == AcceptState)
                     {
                         CheckWord(token, lineNumber, scanner);
                         token = "";
@@ -209,9 +215,9 @@ namespace compiler.Models
                     }
                     else
                     {
-                        if (NextState==0)
+                        if (NextState == 0)
                         {
-                            if (input==' ' || input == ';' || input== '%' || input == '\t' || input == '\r')
+                            if (input == ' ' || input == ';' || input == '%' || input == '\t' || input == '\r')
                             {
                                 WrongToken r = new WrongToken()
                                 {
@@ -242,12 +248,12 @@ namespace compiler.Models
 
                 }
 
-            }         
+            }
 
         }
-      
 
-        private void CheckWord(string word, int lineNumber ,Scanner scanner)
+
+        private void CheckWord(string word, int lineNumber, Scanner scanner)
         {
             string tokenValue = "";
 
@@ -299,9 +305,9 @@ namespace compiler.Models
 
             CorrectToken r = new CorrectToken()
             {
-               Token = word,
-               TokenType = tokenValue,
-               LineNumebr = lineNumber
+                Token = word,
+                TokenType = tokenValue,
+                LineNumebr = lineNumber
             };
 
             correctTokens.Add(r);
@@ -309,18 +315,37 @@ namespace compiler.Models
         }
 
 
-
-        public Scanner ScanningFile(string fileSource , Scanner scanner)
+        public Scanner ScanningFile(string fileSource, Scanner scanner)
         {
             ReadFileLines(fileSource, scanner);
-            
+
             return scanner;
         }
-
-        private void ReadEditorLines(string editorCode, Scanner scanner)
+        private void ReadEditorLines(string EditorSource, Scanner scanner)
         {
             // Read a text file line by line.  
-            string[] lines = editorCode.Split('\n');
+            List<string> lines= new List<string>();
+            string newline = "";
+            int i = 0;
+            int length = EditorSource.Length;
+            foreach (var item in EditorSource)
+            {
+                if (item=='\n')
+                {
+                    lines.Add(newline);
+                    newline="";
+                }
+                else if(i == length-1)
+                {
+                    lines.Add(newline + EditorSource[length-1]);
+                    newline = "";
+                }
+                else {
+                    newline+=item;
+                }
+                i++;
+            }
+            lines.ToArray();
 
             foreach (string line in lines)
             {
@@ -328,15 +353,14 @@ namespace compiler.Models
                 lineNumber++;
             }
         }
-
-
-        public Scanner ScanningEditor(string editorCode, Scanner scanner)
+        public Scanner ScanningEditor(string EditorSource, Scanner scanner)
         {
-            ReadEditorLines(editorCode, scanner);
+   
+            ReadEditorLines(EditorSource, scanner);
 
             return scanner;
         }
-    }
 
+    }
 }
 

@@ -2,6 +2,9 @@
 @{
     ViewData["Title"] = "Home Page";
 }
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
 
 <div class="text-center">
     <h1 class="display-4"><b>Welcome</b></h1>
@@ -20,30 +23,37 @@
 </div>
 
 <br>
- @using(Html.BeginForm("ScanEditor", "Home", FormMethod.Post))
-{
+
 
 <div id="div1" class="form-group green-border-focus">
             <label for="exampleFormControlTextarea5"><b>Or Write your Code Here</b></label>
 <br/><br/>
    <span>
 
-<input type="submit" value="Comment" style="background-color:grey;color:white;width:100px;" />
-     <input type="submit" value="UnComment" style="background-color:grey;color:white;width:110px;" />
+<input type="submit" value="Comment" onclick="Comment()" style="background-color:grey;color:white;width:100px;" />
+     <input type="submit" value="UnComment" onclick="UnComment()" style="background-color:grey;color:white;width:110px;" />
      </span>
     
      <br /> <br />
-    
-     <textarea name="editorCode" id="text" class="form-control" spellcheck="false" ></textarea> 
-       
-         <br />
+     @using(Html.BeginForm("ScanEditor", "Home",FormMethod.Post)){
+     <textarea  name="editorCode" id="text" class="form-control" spellcheck="false" ></textarea> 
+              <br />
       <input type="submit" value="Scan" style="background-color:green;color:white;width:70px;" />
+     }
+
 
 </div>
-}
+
 
 <style>
+    .backdrop {
+  overflow: auto;
+}
 
+.highlights {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
  .form-control:focus {
     border: 1px solid green;
     box-shadow: 0 0 0 0.2rem rgba(186, 104, 200, .25);
@@ -61,4 +71,76 @@
 #div1{
     margin:50px 280px;
 }
+
 </style>
+
+<script>
+function Comment() {
+    function wrapText(elementID, openTag, closeTag) {
+    var textArea = $('#' + elementID);
+    var len = textArea.val().length;
+    var start = textArea[0].selectionStart;
+    var end = textArea[0].selectionEnd;
+    var selectedText = textArea.val().substring(start, end);
+    var replacement = openTag + selectedText + closeTag;
+    textArea.val(textArea.val().substring(0, start) + replacement + textArea.val().substring(end, len));
+}
+wrapText("text", "<*", "*>");
+}
+function UnComment() {
+    function removeText(elementID, openTag, closeTag) 
+    {
+        var textArea = $('#' + elementID);
+        var len = textArea.val().length;
+        var start = textArea[0].selectionStart;
+        var end = textArea[0].selectionEnd;
+        var selectedTextopen = textArea.val().substring(start, start + 2);
+        var selectedTextend = textArea.val().substring(end, end - 2);
+        var replacement = textArea.val().substring(start + 2, end - 2);
+        if (selectedTextopen == "<*" && selectedTextend == "*>") {
+            textArea.val(textArea.val().substring(0, start) + replacement + textArea.val().substring(end, len));
+        }
+    }
+            removeText("text", "<*", "*>");
+
+}
+  </script> 
+
+  <script>
+var input="";
+$( "#text" ).keypress(function( event ) {
+  if ( event.key === ';' || event.keyCode==13 || event.keyCode==32) {
+      if (input != "") { 
+      $.ajax({
+          type: 'POST',
+          url: '/Home/isCorrectToken',
+          data: { word:input },
+                success: function () {
+                    input = "";
+                   },
+              error: function () {
+                  alert("Wrong Token"+' '+input);
+                  input = "";
+
+              }
+            })
+      }
+
+  }
+  else
+  {
+      input+=event.key;
+  }
+});
+
+  </script>
+@*  <script>
+function Scan() {
+    var textvalue = $(#"text").val;
+    $.ajax({
+          type: 'POST',
+          url: '/Home/ScanEditor',
+          data: { EditorSource:textvalue }
+            })
+}
+  </script>*@

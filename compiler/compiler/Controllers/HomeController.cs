@@ -54,58 +54,49 @@ namespace compiler.Controllers
             }
 
             scanner = scanner.ScanningFile(path, scanner);
-
-            //ViewBag.CorrectTokens = array;
-
-            
-
             vm.correctTokens = scanner.correctTokens;
             vm.wrongToken = scanner.wrongTokens;
 
             return View(vm);
         }
+        [HttpPost]
 
-
-       public IActionResult ScanEditor(string editorCode)
-       {
-            scanner = scanner.ScanningEditor( editorCode, scanner);
-
-            vm.correctTokens = scanner.correctTokens;
-            vm.wrongToken = scanner.wrongTokens;
-
-            string[] CodeEditorLines = editorCode.Split('\n');
-
-            string[] words = new string[100]; 
-
-            string CodeEditorwords = "";
-
-            foreach (var item in CodeEditorLines)
+        public IActionResult isCorrectToken(string word)
+        
+        {
+            Scanner scanner = new Scanner();
+            int CurrentState = 1;
+            int NextState;
+            foreach (char input in word)
             {
-                words = item.Split(' ');
-
-                foreach(var word in words)
+                NextState = scanner.GetNextState(CurrentState, input);
+                if (NextState == 0)
                 {
-                   // word = word.Split('\r');
-                    CodeEditorwords += word;
-                    CodeEditorwords += " ";
-
+                    return BadRequest();
                 }
-                CodeEditorwords += "\n";
+                CurrentState = NextState;
             }
-             
-
-            //string[] CodeEditorLines = editorCode.Split('\n');
-
-
-            EditorJoinViewModel e = new EditorJoinViewModel()
-            {
-                codeEditorWords = CodeEditorwords,
-                viewModel = vm,
-                codeEditorLines = CodeEditorLines
-
-            };
-
-            return View(e);
+            return this.Ok();
         }
+
+
+        ViewModel viewmod = new ViewModel()
+        {
+            correctTokens = new List<CorrectToken>(),
+            wrongToken = new List<WrongToken>(),
+        };
+
+        [HttpPost]
+        public IActionResult ScanEditor(string editorCode)
+        {
+
+            scanner = scanner.ScanningEditor(editorCode, scanner);
+            viewmod.correctTokens = scanner.correctTokens;
+            viewmod.wrongToken = scanner.wrongTokens;
+
+            return View(viewmod);
+        }
+
+
     }
 }

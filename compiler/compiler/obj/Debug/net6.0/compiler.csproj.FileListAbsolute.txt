@@ -1654,3 +1654,6 @@ E:\ضحي\compilers\project\Team23CompilerProject\Team23CompilerProject\compiler
 E:\ضحي\compilers\project\Team23CompilerProject\Team23CompilerProject\compiler\compiler\obj\Debug\net6.0\compiler.pdb
 E:\ضحي\compilers\project\Team23CompilerProject\Team23CompilerProject\compiler\compiler\obj\Debug\net6.0\compiler.genruntimeconfig.cache
 E:\ضحي\compilers\project\Team23CompilerProject\Team23CompilerProject\compiler\compiler\obj\Debug\net6.0\ref\compiler.dll
+D:\Github\Team23CompilerProject\compiler\compiler\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
+D:\Github\Team23CompilerProject\compiler\compiler\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+D:\Github\Team23CompilerProject\compiler\compiler\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
