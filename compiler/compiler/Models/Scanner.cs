@@ -11,7 +11,7 @@ namespace compiler.Models
 {
     public class Scanner
     {
-        int[,] TransationTable = new int[12, 9];
+        int[,] TransationTable = new int[14, 10];
 
         public Scanner()
         {
@@ -20,23 +20,26 @@ namespace compiler.Models
             TransationTable[1, 3] = 5;
             TransationTable[1, 4] = 6;
             TransationTable[1, 5] = 7;
-            TransationTable[1, 6] = 2;
-            TransationTable[1, 7] = 9;
-            TransationTable[1, 8] = 1;
-            TransationTable[2, 6] = 3;
-            TransationTable[2, 8] = 11;
-            TransationTable[3, 8] = 11;
+            TransationTable[1, 6] = 11;
+            TransationTable[1, 7] = 2;
+            TransationTable[1, 8] = 9;
+            TransationTable[1, 9] = 1;
+            TransationTable[2, 7] = 3;
+            TransationTable[2, 9] = 13;
+            TransationTable[3, 9] = 13;
             TransationTable[4, 2] = 4;
             TransationTable[4, 3] = 4;
-            TransationTable[4, 8] = 11;
+            TransationTable[4, 9] = 13;
             TransationTable[5, 3] = 5;
-            TransationTable[5, 8] = 11;
-            TransationTable[6, 8] = 11;
+            TransationTable[5, 9] = 13;
+            TransationTable[6, 9] = 13;
             TransationTable[7, 5] = 8;
-            TransationTable[8, 8] = 11;
-            TransationTable[9, 6] = 10;
-            TransationTable[10, 8] = 11;
-            TransationTable[11, 8] = 1;
+            TransationTable[8, 9] = 13;
+            TransationTable[9, 7] = 10;
+            TransationTable[10, 9] = 13;
+            TransationTable[11, 6] = 12;
+            TransationTable[12, 9] = 13;
+            TransationTable[13, 9] = 1;
         }
 
         static string[] Signs = { "+", "-", "*", "/", "~", ".", "\"", "'", "{", "}", "[", "]", "(", ")" };
@@ -90,7 +93,7 @@ namespace compiler.Models
 
         static string[] Braces = { "{", "}", "[", "]", "(", ")" };
 
-        static int AcceptState = 11;
+        static int AcceptState = 13;
 
         bool multicomment = false;
 
@@ -146,21 +149,25 @@ namespace compiler.Models
             {
                 NextState = TransationTable[currentstate, 4];
             }
-            else if (input == '&' || input == '|')
+            else if (input == '&')
             {
                 NextState = TransationTable[currentstate, 5];
             }
-            else if (input == '=')
+            else if (input == '|')
             {
                 NextState = TransationTable[currentstate, 6];
             }
-            else if (input == '!')
+            else if (input == '=')
             {
                 NextState = TransationTable[currentstate, 7];
             }
-            else if (input == ' ' || input == ';' || input == '%' || input == '\t' || input == '\r')
+            else if (input == '!')
             {
                 NextState = TransationTable[currentstate, 8];
+            }
+            else if (input == ' ' || input == ';' || input == '%' || input == '\t' || input == '\r')
+            {
+                NextState = TransationTable[currentstate, 9];
             }
             else
             {
@@ -324,24 +331,25 @@ namespace compiler.Models
         private void ReadEditorLines(string EditorSource, Scanner scanner)
         {
             // Read a text file line by line.  
-            List<string> lines= new List<string>();
+            List<string> lines = new List<string>();
             string newline = "";
             int i = 0;
             int length = EditorSource.Length;
             foreach (var item in EditorSource)
             {
-                if (item=='\n')
+                if (item == '\n')
                 {
                     lines.Add(newline);
-                    newline="";
-                }
-                else if(i == length-1)
-                {
-                    lines.Add(newline + EditorSource[length-1]);
                     newline = "";
                 }
-                else {
-                    newline+=item;
+                else if (i == length - 1)
+                {
+                    lines.Add(newline + EditorSource[length - 1]);
+                    newline = "";
+                }
+                else
+                {
+                    newline += item;
                 }
                 i++;
             }
@@ -355,7 +363,7 @@ namespace compiler.Models
         }
         public Scanner ScanningEditor(string EditorSource, Scanner scanner)
         {
-   
+
             ReadEditorLines(EditorSource, scanner);
 
             return scanner;
