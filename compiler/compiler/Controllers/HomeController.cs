@@ -43,7 +43,6 @@ namespace compiler.Controllers
         public async Task<IActionResult> ScanFileAsync(IFormFile FileSource)
         {
             
-            //Array array;
             // Uses Path.GetTempFileName to return a full path for a file, including the file name.
             string path = Path.GetTempFileName();
             using (var stream = System.IO.File.Create(path))
